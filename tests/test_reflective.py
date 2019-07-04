@@ -90,4 +90,32 @@ def test_foobar_dict_values(empty_foobar, foobar_name, foobar_date, foobar_price
     assert empty_foobar.sa_dict()['Name'] == foobar_name
     assert empty_foobar.sa_dict()['Date'] == foobar_date
     assert empty_foobar.sa_dict()['Price'] == foobar_price
-    
+
+
+class Artist(Base2):
+    __tablename__ = 'artists'
+
+    ArtistId = Column(Integer, primary_key=True)
+    Name = Column(NVARCHAR(120))
+
+
+class Album(Base2):
+    __tablename__ = 'albums'
+
+    AlbumId = Column(Integer, primary_key=True)
+    Title = Column(NVARCHAR(160), nullable=False)
+    ArtistId = Column(ForeignKey('artists.ArtistId'), nullable=False, index=True)
+
+    artist = relationship('Artist')
+
+def test_artist():
+    artist = Artist(ArtistId=1, Name='Norah Jones')
+    output = repr(artist)
+    assert output == "Artist(ArtistId=1, Name='Norah Jones')"
+
+    album = Album(AlbumId=1, Title='Come Away with Me', ArtistId=artist.ArtistId)
+    output = repr(album)
+    assert output == "Album(AlbumId=1, Title='Come Away with Me', ArtistId=1)"
+
+    output = repr(album.sa_dict())
+    assert output == """{'AlbumId': 1, 'Title': 'Come Away with Me', 'ArtistId': 1}"""
