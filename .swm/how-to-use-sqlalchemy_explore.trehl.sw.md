@@ -58,6 +58,16 @@ Now your class has a new `.sa_dict()` method which gives you access to a diction
 
 <br/>
 
+please refer to `📄 README.md`for more examples
+
+here's a picture of fish and loaves
+
+<br/>
+
+<div align="center"><img src="https://firebasestorage.googleapis.com/v0/b/swimmio-content/o/repositories%2FZ2l0aHViJTNBJTNBc3FsYWxjaGVteS1leHBsb3JlJTNBJTNBYXZpYWRyMQ%3D%3D%2Fb431ef26-7c31-4a5d-bc4a-3b1952250410.jpg?alt=media&token=ad44f059-d531-4312-9f8f-2548b91fd9a9" style="width:'50%'"/></div>
+
+<br/>
+
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 README.md
 ```markdown
